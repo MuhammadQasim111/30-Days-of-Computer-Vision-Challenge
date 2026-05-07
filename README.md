@@ -57,15 +57,15 @@ Refining tracking logic to handle occlusions and fast-moving targets.
 * Day 20 - 28: Tracking Moving Objects Using Python
 Building the final application: A traffic monitoring system that counts cars at an intersection using OpenCV, Tkinter for the GUI, and Pandas for data logging.
 ⬜ Phase 2: The Capstone - "Tracking Moving Objects" (Day 20 - 28)This phase documents the creation of a full-scale Traffic Analysis Application.
-Day 20: Project Architecture & RequirementsMapping out the application flow. Defining the roles of OpenCV for vision, Pandas for data storage, and Tkinter for the user interface.
-Day 21: Video Pre-processing & ROIImplementing Region of Interest (ROI) selection to focus detection only on traffic lanes, reducing computational load and false positives.
-Day 22: Background SubtractionImplementing the MOG2 (Mixture of Gaussians) algorithm to isolate moving vehicles from the static road background.
-Day 23: Noise Reduction & MorphologyApplying Erosion and Dilation to clean up the binary mask, removing shadows and "salt-and-pepper" noise from the detected vehicle shapes.
-Day 24: Centroid Tracking AlgorithmWriting the core logic to calculate the center point of each detected vehicle and assigning a unique ID to every object in the frame.
-Day 25: Directional Counting LogicEstablishing "Virtual Tripwires" (virtual lines in the frame) to detect when a centroid crosses a specific boundary to count "Entries" and "Exits.
-"Day 26: Data Integration with PandasLinking the vision system to a Pandas DataFrame to log the timestamp, vehicle ID, and direction for exportable traffic reports.
-Day 27: GUI Development with TkinterBuilding the Glass-style dashboard. Adding buttons for "Start Stream," "Generate Report," and real-time counter displays.
-Day 28: Final System IntegrationMerging the vision engine with the GUI thread. Optimizing the script to ensure the video stream doesn't lag while the data is being logged.
+*Day 20: Project Architecture & RequirementsMapping out the application flow. Defining the roles of OpenCV for vision, Pandas for data storage, and Tkinter for the user interface.
+*Day 21: Video Pre-processing & ROIImplementing Region of Interest (ROI) selection to focus detection only on traffic lanes, reducing computational load and false positives.
+*Day 22: Background SubtractionImplementing the MOG2 (Mixture of Gaussians) algorithm to isolate moving vehicles from the static road background.
+*Day 23: Noise Reduction & MorphologyApplying Erosion and Dilation to clean up the binary mask, removing shadows and "salt-and-pepper" noise from the detected vehicle shapes.
+*Day 24: Centroid Tracking AlgorithmWriting the core logic to calculate the center point of each detected vehicle and assigning a unique ID to every object in the frame.
+*Day 25: Directional Counting LogicEstablishing "Virtual Tripwires" (virtual lines in the frame) to detect when a centroid crosses a specific boundary to count "Entries" and "Exits.
+*Day 26: Data Integration with PandasLinking the vision system to a Pandas DataFrame to log the timestamp, vehicle ID, and direction for exportable traffic reports.
+*Day 27: GUI Development with TkinterBuilding the Glass-style dashboard. Adding buttons for "Start Stream," "Generate Report," and real-time counter displays.
+*Day 28: Final System IntegrationMerging the vision engine with the GUI thread. Optimizing the script to ensure the video stream doesn't lag while the data is being logged.
 * Day 29: Final Review & Project Refinement
 Polishing the codebase, adding detailed comments, and optimizing performance for deployment.
 * Day 30: Conclusion and Certification
