@@ -1,0 +1,87 @@
+Crop and Resize 
+Explore how to find image dimensions and maintain aspect ratio while resizing images in OpenCV. Understand the coordinate system used for cropping images and apply cropping by selecting pixel ranges. This lesson helps you master essential image editing skills useful for computer vision tasks.
+
+1.
+What do you think will happen if we try to read multiple images of a large size ?
+
+Show Answer
+Did you find this helpful?
+So, what’s the solution?
+
+To solve this issue, we resize the large images into smaller ones.
+
+Find the dimensions of the image
+To find the dimensions of the image, we use the img.shape method of the OpenCV library. Here, img is the object we’ve stored the image in. Let’s run the program to find the dimensions of the image:
+
+
+main.py
+Python 3.8
+Ace Editor
+
+Run
+⋯
+The shape of the image
+In the output, the first parameters are the height and width, respectively. The third parameter is the number of colors in the color channel—3 for RGB colors.
+
+Resize the image
+To resize the image, it’s a better idea to keep the ratio of the height and the width constant. Therefore, we’ll scale our image up or down with a constant scale.
+
+First, let’s set the scale. We want to reduce the size of the image, so we set the scale to 0.8.
+
+scale = 0.8
+Next, we reduce the height and width as per the scale. We know that img.shape gives us a tuple, and we can access each component of that tuple.
+
+width = int(img.shape[1] * scale)
+height = int(img.shape[0] * scale)
+Finally, we use the cv2.resize method to resize the image. We use the following command for this:
+
+resizedImage = cv2.resize(img, (width, height))
+Crop the image
+
+
+Normal XY plane
+You might have learned in your studies that the XY cartesian plane has a positive X-axis towards the east and a positive Y-axis towards the north. In OpenCV, the positive X-axis is also towards the east. However, the positive Y-axis is towards the south, and the origin is at the left top corner. This is illustrated below:
+
+
+
+XY plane for OpenCV
+We’ll use this idea to crop an image. We don’t need any special function to crop the image. Instead, we only need to change the range of height and width of the image we want to crop. We use the following code:
+
+croppedImg = img[100:500,300:600]
+If we display the croppedImg in the code above, the displayed image will have its height between 100 and 500 pixels and its width between 300 and 600 pixels.
+
+Note: The height of the image is measured downwards.
+
+Display the cropped and resized image
+The following code displays the image three times in separate windows—its original dimension, a resized version, and a cropped version:
+
+main.py
+Ace Editor
+Saved
+
+Run
+
+# Import library
+import cv2
+
+# Loading an image
+img = cv2.imread("/usercode/image.jpg")
+
+# Resizing image
+scale = 0.5
+width = int(img.shape[1] * scale)
+height = int(img.shape[0] * scale)
+resizedImage = cv2.resize(img, (width, height))
+
+# Cropping image
+croppedImg = img[100:500,300:600]
+
+# Displaying Image
+cv2.imshow("Main", img)
+cv2.imshow("resizedImg", resizedImage)
+cv2.imshow("CroppedImg", croppedImg)
+
+cv2.waitKey(0)
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
