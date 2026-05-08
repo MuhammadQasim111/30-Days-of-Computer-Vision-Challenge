@@ -1,0 +1,86 @@
+Multiple Choice Question
+How should we use the cv2.waitKey() function to display an image for 3 seconds?
+
+cv2.waitKey(3)
+
+cv2.waitKey(30)
+
+cv2.waitKey(300)
+
+cv2.waitKey(3000)
+
+color = (0, 0, 255)
+
+Which color does this color code give?
+
+Blue
+
+Red
+
+Green
+
+Black
+
+
+Which of the following code will change the rotation and scale of the first image to the second image?
+
+width, height = dim
+pointRot = width , height
+angle = 45
+scale = 0.5
+rotationMatrix = cv2.getRotationMatrix2D(pointRot,angle, scale)
+rotatedImg = cv2.warpAffine(img, rotationMatrix, dim)
+cv2.imshow("Rotated Image",rotatedImg)
+width, height = dim
+pointRot = width/2 , height/2
+angle = 135
+scale = 0.5
+rotationMatrix = cv2.getRotationMatrix2D(pointRot,angle, scale)
+rotatedImg = cv2.warpAffine(img, rotationMatrix, dim)
+cv2.imshow("Rotated Image",rotatedImg)
+width, height = dim
+pointRot = width , height
+angle = 135
+scale = 0.5
+rotationMatrix = cv2.getRotationMatrix2D(pointRot,angle, scale)
+rotatedImg = cv2.warpAffine(img, rotationMatrix, dim)
+cv2.imshow("Rotated Image",rotatedImg)
+width, height = dim
+pointRot = width/2 , height/2
+angle = 45
+scale = 1
+rotationMatrix = cv2.getRotationMatrix2D(pointRot,angle, scale)
+rotatedImg = cv2.warpAffine(img, rotationMatrix, dim)
+cv2.imshow("Rotated Image",rotatedImg)
+
+
+rotationMatrix = cv2.getRotationMatrix2D(pointRot,angle, scale)
+
+Here, what should be the angle to rotate the image 75 degrees in the anti-clockwise direction?
+
+A.
+-75
+
+B.
+105
+
+C.
+75
+
+D.
+-105
+
+
+
+translationMatrix = np.float32([[1, 0, x], [0, 1, y]])
+
+Here, What should be the value of x and y to translate the image 3 pixels left and 3 pixels down.
+
+x = 3, y = 3
+
+x= -3. y = -3
+
+x = 3, y = -3
+
+x = -3, y = 3
+
