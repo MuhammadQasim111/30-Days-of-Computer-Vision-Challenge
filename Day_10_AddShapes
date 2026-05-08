@@ -1,0 +1,111 @@
+Add Shapes 
+Explore how to draw basic shapes like circles, rectangles, and lines on images using OpenCV functions. Understand the required parameters for each shape and how to display the edited image, enabling you to highlight specific areas within images clearly and efficiently.
+
+Imagine we want to put a certain shape, such as a rectangle, around a specific portion of an image to draw the viewer’s attention. It takes a very long time to add borders to all the images. Instead, we can use OpenCV to draw the required shapes on those images much more easily.
+
+In this lesson, we’ll draw different shapes on the image below. We’ll draw a circle around one of the balls, a rectangle around a button, and a line on the diagonal.
+
+Before
+
+1 / 2
+
+
+The image before adding shapes.
+Draw the circle
+To draw a circle, we use the cv2.circle() function of the OpenCV library. This function requires five parameters, which are listed below:
+
+img is the image on which we’ll draw the circle.
+center is the center point of the circle around which the circle will be drawn. We can use any image editing tool to find the center of the football.
+radius is the radius of the circle.
+redColor adds red color to the circle. It can be changed to another color with a different color code. We’ll learn about this in detail in the next chapter.
+circleThickness is the thickness of the circle.
+
+main.cpp
+C++
+Ace Editor
+⋯
+Draw a circle on the image
+Note: We need to import the OpenCV library before using this function. We should also read the image as img.
+
+Draw the rectangle
+To draw a rectangle, we use the cv2.rectangle() function of the OpenCV library. This function requires five parameters, which are listed below:
+
+img is the image on which we’ll draw the rectangle.
+leftTopCorner is the top left corner point of the image where we want to draw the rectangle.
+rightBottomCorner is the bottom right corner point of the image where we want to draw the rectangle.
+yellowColor adds yellow color to the rectangle. It can be changed to another color with a different color code. We’ll learn about this in detail in the next chapter.
+rectangleThickness is the thickness of the rectangle.
+
+main.cpp
+C++
+Ace Editor
+⋯
+Draw a rectangle on the image
+Draw a line
+To draw a line, we use the cv2.line() function of the OpenCV library. This function requires five parameters, which are listed below:
+
+img is the image on which we’ll draw the line.
+startPoint is the starting point of the line. In this example, it is the left top corner of the image.
+endPoint is the ending point of the line. In this example, it is the bottom right corner of the image.
+whiteColor adds white color to the line. It can be changed to another color with a different color code. We’ll learn about this in detail in the next chapter.
+lineThickness is the thickness of the line.
+
+main.cpp
+
+center = (410, 170)
+radius = 100
+redColor = (0, 0, 255)
+circleThickness = 5
+cv2.circle(img,center, radius,redColor, circleThickness)
+
+leftTopCorner = (1114, 380)
+rightBottomCorner = (1726, 535)
+yellowColor = (0, 255, 255)
+rectangleThickness = 2
+cv2.rectangle(img, leftTopCorner, rightBottomCorner, yellowColor, rectangleThickness)
+
+startPoint = (0, 0)
+endPoint = (img.shape[1], img.shape[0])
+whiteColor = (255, 255, 255)
+lineThickness = 2
+cv2.line(img,startPoint, endPoint, whiteColor, lineThickness)
+
+cv2.imshow("Main",img)
+
+# Import library
+import cv2
+
+# Loading an image
+img = cv2.imread("/usercode/image.jpg")
+
+# Drawing circle
+center = (410, 170)
+radius = 100
+redColor = (0, 0, 255)
+circleThickness = 5
+cv2.circle(img, center, radius, redColor, circleThickness)
+
+# Drawing rectangle
+leftTopCorner = (1114, 380)
+rightBottomCorner = (1726, 535)
+yellowColor = (0, 255, 255)
+rectangleThickness = 2
+cv2.rectangle(img, leftTopCorner, rightBottomCorner, yellowColor, rectangleThickness)
+
+# Drawing line
+startPoint = (0, 0)
+endPoint = (img.shape[1], img.shape[0])
+whiteColor = (255, 255, 255)
+lineThickness = 2
+cv2.line(img,startPoint, endPoint, whiteColor, lineThickness)
+
+# Displaying Image by resizing 
+scale = 0.5
+width = int(img.shape[1] * scale)
+height = int(img.shape[0] * scale)
+resizedImage = cv2.resize(img, (width, height))
+cv2.imshow("Main", resizedImage)
+
+cv2.waitKey(0)
+C++
+Ace Editor
