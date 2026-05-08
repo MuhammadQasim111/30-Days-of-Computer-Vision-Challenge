@@ -1,0 +1,32 @@
+Read Images 
+Explore how to read images using OpenCV's cv2.imread method, display them with cv2.imshow, and control display duration with cv2.waitKey. This lesson equips you with the fundamentals to handle images in Python projects.
+
+In this lesson, we’ll read an image, display it, and manage its display time. For all these steps, we first need to import the cv2 library, which will allow us to read media files, as well as accomplish other functionalities.
+
+The lesson map
+Read the image
+To read the image, we use the cv2.imread(filename) method of the OpenCV library. Let’s write the filename as a parameter inside the parentheses:
+
+img = cv2.imread("A.jpg")
+We also have to write the absolute path of the file as a parameter if the file is not placed in the same directory where the project files are located. We use the following command for this:
+
+img = cv2.imread(r"/usercode/A.jpg")
+Displaying the image
+To display the image, we use the cv2.imshow(name, ReadFile) method of the OpenCV library. The first parameter name is the name of the window where the image is to be displayed. The second parameter is the name of the object containing the image to be displayed in the window.
+
+cv2.imshow("Kathmandu",img)
+The cv2.waitKey() method
+If we run the program with the three lines of codes above, the image opens and instantly closes. To display the image for a certain amount of time, we use the cv2.waitKey(int) method. ​​It takes a parameter representing time in milliseconds. For example, take a look at the following code:
+
+cv2.waitKey(5000)
+It displays the image for five seconds.
+
+Let’s use this method with a different parameter:
+
+cv2.waitKey(0)
+This is a tricky one. It displays the image for as long as we want. It stops displaying the image only after we press any key on the keyboard.
+
+Our code in the IDE should look like the following:
+
+main.py
+Ace Editor
