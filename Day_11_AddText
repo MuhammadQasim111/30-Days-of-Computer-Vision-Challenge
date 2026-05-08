@@ -1,0 +1,58 @@
+Add Texts 
+Explore how to add text to images with OpenCV's putText function. Understand parameters like font type, size, color, and text position to customize image annotations effectively.
+
+Let’s look at an example. We want to add the names of a company to all our images. We can use the OpenCV library to add text to all those images. Below are the steps we’ll follow in the lesson.
+
+
+
+The lesson map
+Add text
+To add text, we use the cv2.putText() function of the OpenCV library. This function requires seven parameters, which are listed below:
+
+img is the image to which we’ll add the text. text is the text we want to display in the image.
+startingPoint is the starting pixel point of the texts.
+cv2.FONT_HERSHEY_COMPLEX is the font type that we’ll display the text in. We can select other font types from the options in the OpenCV library.
+fontSize is the font size.
+blueColor adds blue color to the text. It can be changed to another color with a different color code. We’ll learn about this in detail in the next chapter.
+thickness is the thickness of the text.
+
+main.cpp
+C++
+Ace Editor
+⋯
+Add texts on an image.
+
+1 / 2
+
+
+Image before adding text
+Note: We need to import the OpenCV library before using this function. We should also read the image as img.
+
+Display the image
+To display the warped image, we use the code below:
+
+cv2.imshow("Main",img)
+Run the code below to see the image with texts.
+
+main.py
+Ace Editor
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Did you find this helpful?
+Congratulations! You successfully added text to the image.
+
+
+Back
+lesson
+
+Mark As Completed
+
+Next
+Add Shapes
+
+Quiz: Editing Images
+
