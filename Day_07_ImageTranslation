@@ -1,0 +1,108 @@
+Image Translation and Rotation 
+Explore how to apply image translation and rotation using OpenCV's warpAffine function and NumPy matrices. Learn to create translation and rotation matrices, define rotation points, and display results, enabling efficient batch image editing with Python.
+
+To adjust images or rotate them for graphics designing and other purposes, we can use photo editing applications to edit them. However, if we have thousands of images to edit, it’ll take hours to edit them all. The OpenCV library provides image translation and rotation to solve this problem.
+
+Create a translation matrix
+To create a translation matrix, we use the float32() method of the NumPy library. We use the following code to create a translation matrix:
+
+translationMatrix = np.float32([[1, 0, x], [0, 1, y]])
+Note: We need to import np first, which is the NumPy library.
+
+Here, x and y are the important variables that determine the magnitude and direction of the translation of the image.
+
+
+
+XY plane for OpenCV
+We must remember that the positive y-axis always faces towards the south and the positive x-axis faces towards the East in the XY plane of images. We can use this concept to guess how the values of x and y will translate the image.
+
+The orignal Image
+
+
+1 / 4
+
+
+The image used for translation
+Translate the image
+Let’s recall how to get the shape of the image. Before translating, we need the dimension of the image—its width and height.
+
+dim = (img.shape[1], img.shape[0])
+Note: We need to import the OpenCV library to use this function. We should also read the image as img.
+
+To translate the images, we use the wrapAffine() function of the OpenCV library. We need three parameters inside the function—img, translationMatrix, and dim. These represent the image, its translation matrix, and its dimensions, respectively.
+
+traslatedImg = cv2.warpAffine(img, translationMatrix, dim)
+Make a point of rotation
+Before we rotate any image, we need to define the point through which we want to rotate that image. The point of rotation determines the rotation of different areas inside the image. We can keep any point on the image as the point of rotation. For now, we’ll keep the center of the image as its point of rotation.
+
+Can you guess how we can get the center of the image?
+
+
+
+Guess the center of the image
+To get the center of the image, we can use the dimensions that we just found. First, we create variables, width and height, and assign them to the respective dimensions.
+
+width, height = (img.shape[1], img.shape[0])
+Next, the center of the image is at half the width and half the height. We use the following command to get their half values:
+
+pointRot = width/2 , height/2
+Create a rotation matrix
+Image rotation means turning the image about a specific point at a specific angle with the help of a rotation matrix. We use the getRotationMatrix2D() function of cv2 to create a rotation matrix. We use the following code to create a rotation matrix:
+
+angle = 45
+scale = 0.5
+rotationMatrix = cv2.getRotationMatrix2D(pointRot,angle, scale)
+Here, we already have pointRot, which is the center of rotation. The angle is the rotation angle in degrees at which the image will rotate. The scale is a decimal value at which the size of the image increases or decreases.
+
+The orignal Image
+
+
+1 / 5
+
+
+The orignal image
+Rotate the image
+To rotate the images, we use the wrapAffine() function of the OpenCV library. We need three parameters inside the function—image, rotationMatrix, and dim. These represent the image, its rotation matrix, and its dimensions, respectively.
+
+rotatedImg = cv2.warpAffine(img, rotationMatrix, dim)
+Display the translated and rotated image
+To display the translated and rotated image, we use the code below:
+
+cv2.imshow("Main",img)
+cv2.imshow("TraslatedImg",traslatedImg)
+cv2.imshow("RotatedImg",rotatedImg)
+The following piece of code explains the overall flow of code and shows the output:
+
+main.py
+
+# Import library
+import cv2
+import numpy as np
+
+# Loading an image
+img = cv2.imread("/usercode/ground.jpg")
+
+# Translating an Image
+x = 100
+y = -100
+translationMatrix = np.float32([[1, 0, x], [0, 1, y]])
+dim = (img.shape[1], img.shape[0])
+traslatedImg = cv2.warpAffine(img, translationMatrix, dim)
+
+# Rotating an Image
+width, height = dim
+pointRot = width/2 , height/2
+angle = 45
+scale = 0.5
+rotationMatrix = cv2.getRotationMatrix2D(pointRot, angle, scale)
+rotatedImg = cv2.warpAffine(img, rotationMatrix, dim)
+
+# Displaying Image
+cv2.imshow("Main", img)
+cv2.imshow("TraslatedImg", traslatedImg)
+cv2.imshow("RotatedImg", rotatedImg)
+
+cv2.waitKey(0)
+Ace Editor
+ 
+Saved
