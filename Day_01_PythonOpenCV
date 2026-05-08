@@ -1,0 +1,42 @@
+Get started with Python OpenCV 
+Explore the fundamentals of Python OpenCV in this lesson, understanding its role in computer vision and machine learning. Gain insights into its applications and prepare to utilize over 2500 algorithms for image and video analysis.
+
+Since this is an intermediate-level course, we expect you to have some basic skills in Python. These include the basic knowledge of the following concepts:
+
+Data structures
+Variables
+Functions
+Loops
+If you understand these basics of Python, you’re all set to learn from this course and see just how fun programming can be. Let’s get started.
+
+What is Python OpenCV?
+OpenCV is an open-source library for computer vision, machine learning, and image processing. It is available in Python, C++, Java, and more. Computer vision is a field of computer science that focuses on deriving insights from digital media files, such as images and videos.
+
+Why learn OpenCV?
+There are many benefits to learning OpenCV. These include, but are not limited to, the following:
+
+It is extensively used around the world. There is a vast community of OpenCV users worldwide, including at IBM, Facebook, Google, Netflix, Microsoft, and so on.
+
+
+Companies looking for OpenCV programmers
+It offers a large number of algorithms. OpenCV gives access to more than 2500 algorithms to perform a wide variety of computer vision and machine learning tasks.
+
+It allows efficient solutions to problems. OpenCV provides an open-source and optimized implementation of algorithms to solve many computer vision and machine learning problems.
+
+Application of OpenCV
+Below are some application areas where OpenCV can be applied:
+
+Interactive art installations
+Video or image search and retrieval
+Automated inspection and surveillance
+Handwriting recognition
+Background subtraction from noisy images
+Robotics
+Self-driving vehicles navigation and control
+
+
+Self-driving car
+Movies: 3D structure from motion
+Medical image analysis
+
+
