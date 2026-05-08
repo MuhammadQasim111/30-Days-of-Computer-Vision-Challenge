@@ -1,0 +1,128 @@
+Bitwise Operations 
+Explore how bitwise operators such as AND, OR, XOR, and NOT work in OpenCV to combine and manipulate images. This lesson helps you understand using these operators to edit black and white images, create masks, and apply complex image blends with practical Python examples.
+
+Instead of just stacking images, we might also want to combine images. We’ll use bitwise operators to combine images in OpenCV. In this lesson, we’ll work with black in white images to better understand these operators.
+
+What are bitwise operators?
+There are four basic bitwise operators—AND, OR, XOR, and NOT. These operators are frequently used to edit images, especially while working with masking images.
+
+First, we’ll create a blank image.
+
+To create a blank image, we use the np.zeros() function of the OpenCV library.
+
+blank = np.zeros((600,600), dtype='uint8')
+Note: We must import the NumPy library to use this function.
+
+This function requires two parameters. The first parameter is the size of the blank image and the second parameter, dtype='uint8', is an unsigned integer of 8 bits.
+
+In the code below, we draw a rectangle and a circle on the blank image, and use these two shapes to understand all the bitwise operators:
+
+rectangle = cv2.rectangle(blank.copy(), (30,30), (570,570), 255, -1)
+(30,30) is the top left corner point of the image where we want to draw the rectangle.
+(570,570) is the bottom right corner point of the image where we want to draw the rectangle.
+255 adds the white color to the rectangle.
+-1 is the thickness of the rectangle. It will fill the rectangle with the respective color.
+circle = cv2.circle(blank.copy(), (200,200), 300, 255, -1)
+(200,200) is the center point of the circle around which the circle will be drawn.
+300 is the radius of the circle.
+255 adds white color to the circle.
+-1 is the thickness of the circle. It will fill the rectangle with the respective color.
+
+1 / 2
+
+
+Rectangle
+The AND operator
+To use the AND bitwise operator, we need the cv2.bitwise_and() function of the OpenCV library. This function requires two parameters—rectangle and circle. These represent the images of a rectangle and circle, respectively.
+
+and_bitwise = cv2.bitwise_and(rectangle, circle)
+cv2.imshow('Bitwise AND', and_bitwise)
+Note: We must import the cv2 library to use the function.
+
+The AND operator returns the intersecting regions of the two images.
+
+
+
+The output of the AND operator
+The OR operator
+To use the OR bitwise operator, we need the cv2.bitwise_or() function of the OpenCV library. This function requires two parameters—rectangle and circle. These represent the images of a rectangle and circle, respectively.
+
+or_bitwise = cv2.bitwise_or(rectangle, circle)
+cv2.imshow('Bitwise OR', or_bitwise)
+The OR operator returns the intersecting regions as well as the non-intersecting regions of both images.
+
+
+
+The output of the OR operator
+The XOR operator
+To use the XOR bitwise operator, we need the cv2.bitwise_xor() function of the OpenCV library. This function requires two parameters—rectangle and circle. These represent the images of a rectangle and circle, respectively.
+
+xor_bitwise = cv2.bitwise_xor(rectangle, circle)
+cv2.imshow('Bitwise XOR', xor_bitwise)
+The XOR operator returns the non-intersecting regions of the two images.
+
+
+
+The output of XOR operator
+The NOT operator
+To use the NOT bitwise operator, we need the cv2.bitwise_not() function of the OpenCV library. This function requires one parameter, circle, which represents the image of a circle.
+
+not_bitwise = cv2.bitwise_not(circle)
+cv2.imshow('Circle NOT', not_bitwise)
+The NOT operator returns the regions that are not part of white pixels of the image. In our case, it inverts the black and white pixel regions. It shows white pixels on the region outside the circle and black pixels on the circle area.
+
+
+
+The output of the NOT operator
+The following code displays five different types of images obtained by using different bitwise operators.
+
+Note: Please move the windows around to see all the images.
+
+main.py
+Ace Editor
+ 
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Did you find this helpful?
+Try it yourself
+Congratulations! You have learned about different types of bitwise operations and how to use them in OpenCV.
+
+
+Back
+
+# Import library
+import cv2
+import numpy as np
+
+#Creating a blank image
+blank = np.zeros((600,600), dtype='uint8')
+
+#Creating rectangle and cricle on blanks
+rectangle = cv2.rectangle(blank.copy(), (30, 30), (570, 570), 255, -1)
+circle = cv2.circle(blank.copy(), (300, 300), 300, (0,0,0), -1)
+
+cv2.imshow('Rectangle', rectangle)
+cv2.imshow('Circle', circle)
+
+# bitwise 'AND'
+and_bitwise = cv2.bitwise_and(rectangle, circle)
+cv2.imshow('Bitwise AND', and_bitwise)
+
+# bitwise 'OR'
+or_bitwise = cv2.bitwise_or(rectangle, circle)
+cv2.imshow('Bitwise OR', or_bitwise)
+
+# bitwise 'XOR'
+xor_bitwise = cv2.bitwise_xor(rectangle, circle)
+cv2.imshow('Bitwise XOR', xor_bitwise)
+
+# bitwise 'NOT'
+not_bitwise = cv2.bitwise_not(circle)
+cv2.imshow('Circle NOT', not_bitwise)
+
+cv2.waitKey(0)
+lesson
