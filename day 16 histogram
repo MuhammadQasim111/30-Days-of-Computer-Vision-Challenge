@@ -1,0 +1,123 @@
+Histogram Computation 
+Explore how to compute histograms for both grayscale and color images using OpenCV in Python. Understand pixel intensity distribution and learn to plot histograms with matplotlib, enhancing your skills in image analysis and classification.
+
+What is a histogram?
+In OpenCV, the histogram is used to visualize the distribution of pixel intensities in an image. It is a graphical plot that depicts the number of pixels in images with certain intensities.
+
+Histogram-based data analysis is one of the most important uses of the OpenCV library. It is widely used in image classification and recognition.
+
+
+
+A sample image with intensities of some pixels
+To calculate a histogram, we can count the number of pixels that have certain intensities. For example, if there are 4 pixels with intensity 9, there will be a point at (4,9) in the histogram. In a similar manner, points are taken from all different intensities and the histogram is drawn. Let’s learn to draw a histogram using OpenCV.
+
+Histogram for grayscale image
+First, we need to convert our image to grayscale.
+
+gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+cv2.imshow('Gray', gray)
+Note: We have to import the cv2 library and read the image before using the function.
+
+To compute a histogram, we use the cv2.calcHist() function of the OpenCV library. This function needs five parameters.
+
+The first parameter is a list of images. We use [gray] because we’re calculating the histogram of only one image. Make sure to note the square bracket, as the parameter is a list.
+The second parameter is the number of channels. We use [0] because we are creating a histogram for a grayscale image.
+The third parameter is the mask. If we want to compute the histogram for some specific part of the image, we use a mask as we did in the previous lesson. We set it as None for this one.
+The fourth parameter is histSize. It is the number of bins that we want to use to plot the histogram. We set it as [256].
+The fifth parameter is the range of pixel values. We keep its range from 0 to 255. So, we set it as [0,256]. Here, the upper bound is exclusive.
+gray_hist = cv2.calcHist([gray], [0], None, [256], [0,256] )
+Next, we need to plot the histogram.
+
+To plot the histogram, we use the matplotlib.pyplot library. Let’s import the library as plt:
+
+import matplotlib.pyplot as plt
+We use the plt.plot() function to calculate the histogram we want to plot. We use the plt.xlim([0,256]) function to limit the x-axis. It limits the x values between 0 and 256. Here, the upper bound is exclusive. Finally, we use plt.show() to display the plot:
+
+
+main.py
+Python 3.8
+Ace Editor
+⋯
+Creating grayscale histogram
+Histogram for a color image
+To create a histogram for a color images, we follow mostly the same steps. First, we use the plt.figure() function to instantiate a Matplotlib figure. Next, we use the plt.title() function to give it a title. We use the plt.xlabel() function to label the x-axis. Similarly, we use the plt.ylabel() function to label the y-axis.
+
+
+main.py
+Python 3.8
+Ace Editor
+⋯
+Creating color histogram
+For the color histogram, we plot the pixel intensity for three different colors—blue b, green g and red r. Then we use the cv2.calcHist() function with a for loop to calculate the histogram for all three colors. We use the plt.plot() function to plot the histogram that we calculated. Finally, we use the plt.show() to display the plot.
+
+
+main.py
+Python 3.8
+Ace Editor
+⋯
+Displaying color histogram
+The code below displays two histograms. The x-axis of the histogram equals the number of pixels that have a certain intensity, as given in the y-axis.
+
+Below is what our code in the IDE should look like:
+
+main.py
+Ace Editor
+ 
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Did you find this helpful?
+Histogram Computation
+We use the plt.subplot() function to show both the plots simultaneously. The number inside the plt.subplot function, 211, represents 2 rows, 1 column, and 1 plot number.
+
+Well done! You have successfully created both grayscale and colored histograms.
+
+
+Back
+lesson
+
+Mark As Completed
+
+Next
+Mask Images
+
+Edge Detection
+
+# Import library
+import cv2
+import matplotlib.pyplot as plt
+
+
+# Loading an image
+img = cv2.imread(r"/usercode/photo.jpg")
+
+
+# GrayScale histogram
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+
+#Histogram
+gray_hist = cv2.calcHist([gray], [0], None, [256], [0,256] )
+
+plt.figure()
+plt.title('Grayscale histogram')
+
+plt.subplot(211)
+plt.ylabel('No. of Pixel')
+plt.plot(gray_hist)
+plt.xlim([0,256])
+
+plt.subplot(212)
+plt.xlabel('Intensity of Pixel')
+plt.ylabel('No. of Pixel')
+colors = ('b', 'g', 'r')
+for i,col in enumerate(colors):
+    hist = cv2.calcHist([img], [i], None, [256], [0,256])
+    plt.plot(hist, color=col)
+    plt.xlim([0,256])
+plt.show()
+
+cv2.waitKey(0)
