@@ -1,0 +1,105 @@
+Color Spaces 
+Explore the concept of color spaces in image processing and understand how to convert images between BGR, grayscale, HSV, LAB, and RGB formats using OpenCV's cv2.cvtColor() method in Python. This lesson will help you manipulate image colors effectively for various computer vision applications.
+
+What is a color space?
+A color space is a specific organization of color. It is a system of representing an array of pixel colors. There are several color spaces, such as BGR, grayscale, HSV, LAB, and many more. Here, we’ll learn to convert our image from one color space to another.
+
+Convert from BGR to grayscale
+Note: OpenCV reads the images in BGR format.
+
+To convert the image to grayscale, we use the cv2.cvtColor() method of the OpenCV library. We need to give two parameters to this function—the image and the color code:
+
+gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+cv2.imshow('Gray', gray)
+Here, the color code is cv2.COLOR_BGR2GRAY, which converts the image from the BGR color space to the GRAY color space.
+
+Convert from BGR to HSV
+To convert the image to HSV, we again use the cv2.cvtColor() method. However, we specify a different color code as the parameter:
+
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+cv2.imshow('HSV', hsv)
+Here, the color code is cv2.COLOR_BGR2HSV, which converts the image from the BGR color space to the HSV color space.
+
+Convert from BGR to LAB
+To convert the image to LAB, we again use the cv2.cvtColor() method. In this case, we specify a different color code:
+
+lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
+cv2.imshow('LAB', lab)
+Here, the color code is cv2.COLOR_BGR2LAB, which converts the image from the BGR color space to the LAB color space.
+
+Convert from BGR to RGB
+Outside of OpenCV, we use the RGB format, which is the inverse of the BGR format. To convert the image to RGB, we again use the cv2.cvtColor() method with a different color code:
+
+rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+cv2.imshow('RGB', rgb)
+Here, the color code is cv2.COLOR_BGR2RGB, which converts the image from the BGR color space to the RGB color space. It will inverse the color of the image. For example, the blue will be red, and the red will be blue.
+
+
+
+1 / 5
+
+
+The orignal image
+main.py
+Ace Editor
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Color Spaces 
+Explore the concept of color spaces in image processing and understand how to convert images between BGR, grayscale, HSV, LAB, and RGB formats using OpenCV's cv2.cvtColor() method in Python. This lesson will help you manipulate image colors effectively for various computer vision applications.
+
+What is a color space?
+A color space is a specific organization of color. It is a system of representing an array of pixel colors. There are several color spaces, such as BGR, grayscale, HSV, LAB, and many more. Here, we’ll learn to convert our image from one color space to another.
+
+Convert from BGR to grayscale
+Note: OpenCV reads the images in BGR format.
+
+To convert the image to grayscale, we use the cv2.cvtColor() method of the OpenCV library. We need to give two parameters to this function—the image and the color code:
+
+gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+cv2.imshow('Gray', gray)
+Here, the color code is cv2.COLOR_BGR2GRAY, which converts the image from the BGR color space to the GRAY color space.
+
+Convert from BGR to HSV
+To convert the image to HSV, we again use the cv2.cvtColor() method. However, we specify a different color code as the parameter:
+
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+cv2.imshow('HSV', hsv)
+Here, the color code is cv2.COLOR_BGR2HSV, which converts the image from the BGR color space to the HSV color space.
+
+Convert from BGR to LAB
+To convert the image to LAB, we again use the cv2.cvtColor() method. In this case, we specify a different color code:
+
+lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
+cv2.imshow('LAB', lab)
+Here, the color code is cv2.COLOR_BGR2LAB, which converts the image from the BGR color space to the LAB color space.
+
+Convert from BGR to RGB
+Outside of OpenCV, we use the RGB format, which is the inverse of the BGR format. To convert the image to RGB, we again use the cv2.cvtColor() method with a different color code:
+
+rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+cv2.imshow('RGB', rgb)
+Here, the color code is cv2.COLOR_BGR2RGB, which converts the image from the BGR color space to the RGB color space. It will inverse the color of the image. For example, the blue will be red, and the red will be blue.
+
+
+
+1 / 5
+
+
+The orignal image
+main.py
+Ace Editor
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Did you find this helpful?
+Congratulations! You’ve learned about color spaces and how to convert an image from one color space to another.
+
+Terminal
+Did you find this helpful?
+Congratulations! You’ve learned about color spaces and how to convert an image from one color space to another.
