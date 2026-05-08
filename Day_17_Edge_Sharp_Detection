@@ -1,0 +1,292 @@
+Edge Detection 
+Explore how to detect edges in images using OpenCV's Canny, Sobel, and Laplacian methods. Understand the principles behind each technique, apply grayscale conversion, and use these algorithms to identify edges for image processing tasks.
+
+One of the most frequent uses of OpenCV is the detection of shapes, edges, faces, and various other components in images. In this chapter, we’ll learn about some of those detections.
+
+Detecting edges helps us solve many practical problems. It helps us detect shapes, documents, and various other components of the image. Here, we’ll discuss three different methods of detecting edges—Canny edge detection, Laplacian edge detection, and Sobel edge detection.
+
+First, we need to convert our image to grayscale:
+
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+Canny edge detection
+For Canny edge detection, we use the cv2.Canny() function of the OpenCV library. This function requires three parameters, which are listed below:
+
+The first parameter is the input image.
+
+The second parameter is the minimum value of the intensity gradient. The edges with an intensity gradient lower than the minimum value are not considered edges. So, increasing the minimum value reduces the number of edges.
+
+The third parameter is the maximum value of the intensity gradient. The edges with an intensity gradient more than the maximum value are considered as edges.
+
+The values that lie between these two thresholds are classified as edges or non-edges based on their connectivity.
+
+cannyEdge = cv2.Canny(gray, 150, 150)
+cv2.imshow('Canny', canny)
+The Canny edge detection algorithm goes through four main stages. First, it uses Gaussian blur to reduce noise. Then it finds the intensity gradient of the image. It goes through non-maximum suppression where the image is scanned, and removes the unwanted pixels. The final step is hysteresis thresholding. In this step, the algorithm decides whether the edges detected are edges or not based on the minimum and maximum value of the intensities provided as the parameter.
+
+
+
+Canny edge detection
+Sobel edge detection
+For Sobel edge detection, we use the cv2.Sobel() function of the OpenCv library. The algorithm of Sobel edge detection is based on the fact that at the edges, there is a drastic change in the pixel intensity. We can use the first derivative to observe this change. A higher change in the gradient suggests a major change in the image. The algorithm decides those points as edges. It also uses Gaussian smoothing for noise reduction.
+
+The cv2.Sobel() function requires four parameters, which are listed below:
+
+The first parameter is the input image.
+
+The second parameter is the data depth. For this, we use cv2.CV_64F. It means the NumPy array, dtype, is float64 (64-bit floating-point).
+
+The third parameter is dx which is the gradient’s value in the x-direction.
+
+The fourth parameter is dy which is the gradient’s value in the y-direction.
+
+
+main.cpp
+C++
+Ace Editor
+⋯
+Sobel edge detection
+We used Sobel edge detection in both the x and y directions. Then we used the cv2.bitwise_or() function to combine those two images.
+
+
+
+Sobel edge detection
+Laplacian edge detection
+For Laplacian edge detection, we use the cv2.Laplacian() function of the OpenCV library. The algorithm of Laplacian edge detection is also based on the fact that at the edges, there is a drastic change in the pixel intensity. However, unlike Sobel edge detection, it uses the second derivative to find edges. It uses the fact that the second derivative is zero in the regions where there is a drastic change in pixel intensity.
+
+This function requires two parameters, which are listed below:
+
+The first parameter is the input image.
+The second parameter is the data depth. For this, we use cv2.CV_64F. It means the NumPy array, dtype, is float64 (64-bit floating-point).
+lap_Edge = cv2.Laplacian(gray, cv2.CV_64F)
+cv2.imshow('Laplacian', lap_Edge)
+
+
+Laplacian edge detection
+The images given in the example of respective edge detection techniques have different type of edges detected. We can see that the Canny edge detection gives thick edges in comparison to Laplacian edge detection. The Sobel edge detection gives discontinuous edges. The horizontal and vertical Sobel edge detections give the edges stretched in the respective direction.
+
+Our code in the IDE should look like the following:
+
+main.py
+Ace Editor
+ 
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Did you find this helpful?
+Congratulations! You have successfully det
+
+Edge Detection 
+Explore how to detect edges in images using OpenCV's Canny, Sobel, and Laplacian methods. Understand the principles behind each technique, apply grayscale conversion, and use these algorithms to identify edges for image processing tasks.
+
+One of the most frequent uses of OpenCV is the detection of shapes, edges, faces, and various other components in images. In this chapter, we’ll learn about some of those detections.
+
+Detecting edges helps us solve many practical problems. It helps us detect shapes, documents, and various other components of the image. Here, we’ll discuss three different methods of detecting edges—Canny edge detection, Laplacian edge detection, and Sobel edge detection.
+
+First, we need to convert our image to grayscale:
+
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+Canny edge detection
+For Canny edge detection, we use the cv2.Canny() function of the OpenCV library. This function requires three parameters, which are listed below:
+
+The first parameter is the input image.
+
+The second parameter is the minimum value of the intensity gradient. The edges with an intensity gradient lower than the minimum value are not considered edges. So, increasing the minimum value reduces the number of edges.
+
+The third parameter is the maximum value of the intensity gradient. The edges with an intensity gradient more than the maximum value are considered as edges.
+
+The values that lie between these two thresholds are classified as edges or non-edges based on their connectivity.
+
+cannyEdge = cv2.Canny(gray, 150, 150)
+cv2.imshow('Canny', canny)
+The Canny edge detection algorithm goes through four main stages. First, it uses Gaussian blur to reduce noise. Then it finds the intensity gradient of the image. It goes through non-maximum suppression where the image is scanned, and removes the unwanted pixels. The final step is hysteresis thresholding. In this step, the algorithm decides whether the edges detected are edges or not based on the minimum and maximum value of the intensities provided as the parameter.
+
+
+
+Canny edge detection
+Sobel edge detection
+For Sobel edge detection, we use the cv2.Sobel() function of the OpenCv library. The algorithm of Sobel edge detection is based on the fact that at the edges, there is a drastic change in the pixel intensity. We can use the first derivative to observe this change. A higher change in the gradient suggests a major change in the image. The algorithm decides those points as edges. It also uses Gaussian smoothing for noise reduction.
+
+The cv2.Sobel() function requires four parameters, which are listed below:
+
+The first parameter is the input image.
+
+The second parameter is the data depth. For this, we use cv2.CV_64F. It means the NumPy array, dtype, is float64 (64-bit floating-point).
+
+The third parameter is dx which is the gradient’s value in the x-direction.
+
+The fourth parameter is dy which is the gradient’s value in the y-direction.
+
+
+main.cpp
+C++
+Ace Editor
+⋯
+Sobel edge detection
+We used Sobel edge detection in both the x and y directions. Then we used the cv2.bitwise_or() function to combine those two images.
+
+
+
+Sobel edge detection
+Laplacian edge detection
+For Laplacian edge detection, we use the cv2.Laplacian() function of the OpenCV library. The algorithm of Laplacian edge detection is also based on the fact that at the edges, there is a drastic change in the pixel intensity. However, unlike Sobel edge detection, it uses the second derivative to find edges. It uses the fact that the second derivative is zero in the regions where there is a drastic change in pixel intensity.
+
+This function requires two parameters, which are listed below:
+
+The first parameter is the input image.
+The second parameter is the data depth. For this, we use cv2.CV_64F. It means the NumPy array, dtype, is float64 (64-bit floating-point).
+lap_Edge = cv2.Laplacian(gray, cv2.CV_64F)
+cv2.imshow('Laplacian', lap_Edge)
+
+
+Laplacian edge detection
+The images given in the example of respective edge detection techniques have different type of edges detected. We can see that the Canny edge detection gives thick edges in comparison to Laplacian edge detection. The Sobel edge detection gives discontinuous edges. The horizontal and vertical Sobel edge detections give the edges stretched in the respective direction.
+
+Our code in the IDE should look like the following:
+
+main.py
+Ace Editor
+ 
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Did you find this helpful?
+Congratulations! You have successfully det
+# Import library
+import cv2
+
+# Loading the image
+img = cv2.imread(r"/usercode/shapes.jpg")
+
+#Resizing Image
+scale = 0.6
+width = int(img.shape[1] * scale)
+height = int(img.shape[0] * scale)
+img = cv2.resize(img, (width, height))
+cv2.imshow('Original', img)
+
+#Converting the image to gray
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+#CannyEdgeDetection
+cannyEdge = cv2.Canny(gray, 150, 150)
+cv2.imshow('Canny', cannyEdge)
+
+# LaplacianEdgeDetection
+lap_Edge = cv2.Laplacian(gray, cv2.CV_64F)
+cv2.imshow('Laplacian', lap_Edge)
+
+# SobelEdge
+sobelx_axis = cv2.Sobel(gray, cv2.CV_64F, 1, 0)
+sobely_axis = cv2.Sobel(gray, cv2.CV_64F, 0, 1)
+combined_sobel = cv2.bitwise_or(sobelx_axis, sobely_axis)
+cv2.imshow('Sobel X', sobelx_axis)
+cv2.imshow('Sobel Y', sobely_axis)
+cv2.imshow('Combined Sobel', combined_sobel)
+
+cv2.waitKey(0)
+
+Shape Detection 
+Understand how to detect shapes in images using OpenCV by converting images to grayscale, applying the Canny edge detection algorithm, and retrieving contours. Learn to draw contours around detected shapes to visualize the results, preparing you to apply shape detection in data collection or image processing projects.
+
+In this lesson, we’ll learn to detect shapes. It’ll help us find different types of shapes in our image. It can be used for data collection in scientific and various other fields.
+
+First, we need to convert our image to grayscale. Converting the image to grayscale is really important, because it helps us find the edges properly. We use the edge detection algorithm to detect edges, along with the retrieval algorithm to detect shapes:
+
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+Convert to a canny image
+To convert an image to a Canny image, we use the cv2.Canny() function of the OpenCv library. This function requires three parameters:
+
+The first parameter is the input image. - The second parameter is the minimum value of the intensity gradient, and the third parameter is the maximum value of the intensity gradient.
+The third parameter is the maximum value of the intensity gradient.
+imgCanny = cv2.Canny(gray,50,50)
+This function converts the image to black and white, highlighting the edges of the contours. It makes the work of the contour retrieval algorithm easier.
+
+Detect shapes
+To detect shapes, we use the cv2.findContours() function of the OpenCV library. This function requires three parameters, which are listed below:
+
+The first parameter is the Canny image.
+
+The second parameter is the mode to find the contours. We use cv2.RETR_EXTERNAL to find the external contours. It is one of the mode of contour retrieval algorithm. It is used to retrieve only the outer contours.
+
+The third parameter is the contour approximation method. For this, we use cv2.CHAIN_APPROX_NONE. It stores all the contours found by our retrieval algorithm.
+
+contours,hierarchy = cv2.findContours(imgCanny,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
+Shapes are detected by the retrieval algorithms, which look for the edges in the canny image to detect the shapes.
+
+Note: All the shapes detected will be stored inside the contours variable. We use this variable to draw the contours.
+
+Draw contours
+To draw contours, we use the cv2.drawContours() function of the OpenCV library. We need to give five parameters to the function—they are listed below:
+
+img is the image on which we want to draw contours.
+cnt is the contours that we detected using the cv2.findContours() function.
+contourindex is the number of contours we want to draw. For example, if we only want to draw the third contour, we give the value 2. In this example, we enter the value -1 because we want to draw all the contours.
+blueColor adds blue color to the contours.
+thickness is the thickness of the contours.
+
+main.py
+Python 3.8
+Ace Editor
+⋯
+Drawing Contours
+
+1 / 2
+
+
+Original Image
+Our code in the IDE should look like the following:
+
+main.py
+Ace Editor
+ 
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Did you find this helpful?
+
+
+# Import library
+import cv2
+
+# Loading an image
+img = cv2.imread(r"/usercode/shapes.jpg")
+
+
+#Resizing Image
+scale = 0.6
+width = int(img.shape[1] * scale)
+height = int(img.shape[0] * scale)
+img = cv2.resize(img, (width, height))
+
+cv2.imshow("OriginalImage", img)
+
+#Converting the image to gray
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+
+# Converting the image to canny image
+imgCanny = cv2.Canny(gray, 50, 50)
+
+
+#Finding and Drawing Contours
+contours,hierarchy = cv2.findContours(imgCanny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+for cnt in contours:
+    blueColor = (255, 0, 0)
+    contourIndex = -1
+    thickness = 3
+    cv2.drawContours(img, cnt, contourIndex, blueColor, thickness)
+
+
+# Displaying the image with contours
+cv2.imshow("Main",img)
+
+cv2.waitKey(0)
