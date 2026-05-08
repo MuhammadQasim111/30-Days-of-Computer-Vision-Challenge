@@ -1,0 +1,72 @@
+Read Webcam 
+Explore how to capture live webcam video feeds in Python using OpenCV. Learn to initialize the webcam, set frame dimensions, read video frames, and display them continuously for real-time viewing.
+
+Capture the webcam’s feed
+To capture a webcam’s feed, we use the cv2.VideoCapture(0) method. Here, 0 represents the default camera being used to capture the video.
+
+vid = cv2.VideoCapture(0)
+Note: We need to import the cv2 library before using the function.
+
+Set the display frame
+We need to create the frame to display the live webcam. For the webcam, we use the .set() method. Inside the parenthesis, we need to include the ID number of the required property and its value. For example, the ID number of width is 3. Can you guess what the ID number of height is?
+
+It’s 4. Below is what the code should look like:
+
+frameWidth = 640
+frameHeight = 480
+vid.set(3, frameWidth)
+vid.set(4, frameHeight)
+Read the webcam’s feed
+To read the webcam’s feed, we use the read() function for the captured webcam’s feed. Look at the following code:
+
+while True:
+  success, img = vid.read()
+Here, we store our image in the img object. The success keyword stores a boolean value representing whether or not it was done successfully.
+
+Display the webcam’s feed
+After reading the feed, we display it frame by frame. One frame is simply an image. Therefore, we again use the cv2.imshow() and waitKey() functions to pause each frame in the live feed and display the frames continuously to display video.
+
+img = cv2.imshow("Webcam",img)
+The Following is what our in the local IDE should look like:
+
+
+main.py
+Python 3.8
+Ace Editor
+ 
+Read Webcam 
+Explore how to capture live webcam video feeds in Python using OpenCV. Learn to initialize the webcam, set frame dimensions, read video frames, and display them continuously for real-time viewing.
+
+Capture the webcam’s feed
+To capture a webcam’s feed, we use the cv2.VideoCapture(0) method. Here, 0 represents the default camera being used to capture the video.
+
+vid = cv2.VideoCapture(0)
+Note: We need to import the cv2 library before using the function.
+
+Set the display frame
+We need to create the frame to display the live webcam. For the webcam, we use the .set() method. Inside the parenthesis, we need to include the ID number of the required property and its value. For example, the ID number of width is 3. Can you guess what the ID number of height is?
+
+It’s 4. Below is what the code should look like:
+
+frameWidth = 640
+frameHeight = 480
+vid.set(3, frameWidth)
+vid.set(4, frameHeight)
+Read the webcam’s feed
+To read the webcam’s feed, we use the read() function for the captured webcam’s feed. Look at the following code:
+
+while True:
+  success, img = vid.read()
+Here, we store our image in the img object. The success keyword stores a boolean value representing whether or not it was done successfully.
+
+Display the webcam’s feed
+After reading the feed, we display it frame by frame. One frame is simply an image. Therefore, we again use the cv2.imshow() and waitKey() functions to pause each frame in the live feed and display the frames continuously to display video.
+
+img = cv2.imshow("Webcam",img)
+The Following is what our in the local IDE should look like:
+
+
+main.py
+Python 3.8
+Ace Editor
+
