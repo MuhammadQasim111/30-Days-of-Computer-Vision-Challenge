@@ -1,0 +1,29 @@
+# Import library
+import cv2
+
+# Capturing video
+vid = cv2.VideoCapture("/usercode/vid1.mp4")
+
+#Creating the tracker and getting the tracking area
+
+#->Write your code here
+
+#Drawing the box to follow the tracker
+def drawBox(img,trackingArea):
+    #->Write your code here
+    pass
+
+# Checking if video is read
+while True:
+    # Reading the video
+
+    #->Write your code here
+    
+    #Updating the tracker
+    
+    #->Write your code here
+
+    #Making the video play and pause with "P" key
+
+    #->Write your code here
+
