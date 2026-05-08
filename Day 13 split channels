@@ -1,0 +1,79 @@
+Split and Merge Color Channels 
+Explore how to separate and combine the blue, green, and red color channels of an image using OpenCV in Python. Understand color intensity representation within each channel and apply cv2.split and cv2.merge functions to create and manipulate mono-colored and color images effectively.
+
+We covered some basic ideas about editing images. Next, we’ll learn some advanced techniques to edit images in OpenCV. The major points we’ll cover are mentioned in the illustration below.
+
+
+
+The lesson map
+Color channels are the main component of a color image. Therefore, we need to learn how to separate those color channels. This helps us understand different color intensities in the image and allows us to create mono-colored images.
+
+What are color channels?
+A color image consists of three color channels—blue, green, and red. We merge these three color channels to create color images. OpenCV allows us to split an image into respective color channels. Additionally, it allows us to merge the color channels to form a color image.
+
+Split color channels
+To split color channels, we use the cv2.split() method of the OpenCV library.
+
+
+main.py
+Python 3.8
+Ace Editor
+⋯
+
+
+1 / 4
+
+
+The image before splitting color spaces
+Note: We need to import the cv2 library and read the image before using the function.
+
+Here, the image with a blue color channel is stored as b, the image with a green color channel as g, and the image with a red color channel as r. When we run the code, we can see that the image stored as b shows a grayscale image. In this image, the areas that are initially blue are light, and the areas that weren’t blue are dark. The blue channel matrix contains the blue color intensity values, as integers, for all the image pixels. All the other images are displayed similarly as per their color.
+
+Merge color channels
+To merge the color channels, we use the cv2.merge() method of the OpenCV library. This method requires three different color channels as the parameter of the function:
+
+merged = cv2.merge([b,g,r])
+cv2.imshow('Merged Image', merged)
+Note: We have to keep the images of color channels inside a square bracket.
+
+This is what our code in the IDE should look like:
+
+main.py
+Ace Editor
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Did you find this helpful?
+Well done! You successfully split and merged the color channels of images in OpenCV.
+
+
+Back
+
+
+# Import library
+import cv2
+
+# Loading an image
+img = cv2.imread(r"/usercode/photo.jpg")
+cv2.imshow('Image', img)
+
+#Splitting the image on the basis of color channels
+b,g,r = cv2.split(img)
+
+#Displaying the split images
+cv2.imshow('Blue', b)
+
+cv2.imshow('Green', g)
+
+cv2.imshow('Red', r)
+
+#Merging the split images
+merged = cv2.merge([b, g, r])
+
+#Displaying the split images
+cv2.imshow('Merged Image', merged)
+
+cv2.waitKey(0)
