@@ -1,0 +1,39 @@
+#Importing Libraries
+import cv2
+import numpy as np
+
+# Loading an image and setting the frame size for the scanned documents
+img = cv2.imread("docs.jpg")
+frameWidth = 480
+frameHeight = 640
+cv2.imshow("Original",img)
+
+#Processing the image
+def imageProcessing(img):
+    # write your code here
+    pass
+
+#Getting the boundaries of the document
+def GetContour(img):
+    # write your code here
+    pass
+
+#Getting the points around the boundaries
+def reorder(myPoints):
+    # write your code here
+    pass
+
+#Warping the document
+def getWarp(img,biggest):
+    # write your code here
+    pass
+
+# Uncomment the following after adding definations for above functions
+
+# img = cv2.resize(img,(frameWidth,frameHeight))
+# result = imageProcessing(img)
+# biggest = GetContour(result)
+# imgWrapped = getWarp(img, biggest)
+# cv2.imshow("Output",imgWrapped)
+
+cv2.waitKey(0)
