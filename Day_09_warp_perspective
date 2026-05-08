@@ -1,0 +1,123 @@
+Warp Perspective 
+Explore how to extract and transform a section of an image using pixel coordinates and OpenCV in Python. Understand obtaining corner points, creating a warp perspective matrix, and applying warpPerspective to crop and display image sections effectively.
+
+Sometimes, we might want to work with only a portion of an image. For example, while scanning a document, we only want a part of the document scanned. To perform such tasks, follow the steps mentioned in the illustration.
+
+
+
+The lesson map
+1.
+How can we get only the necessary portions of an image?
+
+Show Answer
+Did you find this helpful?
+In this lesson, we’ll get a portion of the first button, “Champions League,” from the image below.
+
+
+
+The image to be used for warp perspective
+Get the pixel points
+To get the pixel points of the corners of the image, we can use any image editing tool, such as MS Paint. When we move the cursor to the corner of the area we want to extract, the pixel point will be shown in the bottom left corner of the MS Paint window. This is shown in the following screenshot.
+
+
+
+Getting points from MS Paint
+We can get the four-pixel points of the “Champions League” button’s corners with this process.
+
+width, height = 400, 100
+ptsA = np.float32([[1114, 380], [1726, 380], [1114, 535], [1726, 535]])
+ptsB = np.float32([[0, 0], [width, 0], [0, height], [width, height]])
+Note: We assign the values of four points of the required portion to four different points to create the image.
+
+Create a warp perspective matrix
+To create a warp perspective matrix, we use the getPerspectiveTransform() method of the OpenCV library. We will use the following code to create a warp perspective matrix.
+
+matrix = cv2.getPerspectiveTransform(ptsA, ptsB)
+Here, the first parameter is the pixel points of the button’s corners in the original image. The second parameter is the points around the warped image.
+
+Warp the image
+To warp the image, we use the warpPerspective() function of the OpenCV library. This function requires three parameters—img, matrix, and (width, height). These represent the image, its warp perspective matrix, and its dimensions, respectively.
+
+warpedImg = cv2.warpPerspective(img, matrix, (width, height))
+Display the warped image
+To display the warped image, we use the code below:
+
+cv2.imshow("Main",img)
+cv2.imshow("WarpedImg",warpedImg)
+1.
+What is the difference between warping and cropping?
+
+Show Answer
+Did you find this helpful?
+Run the code below to understand the complete flow of code and display the warped image:
+
+main.py
+Ace Editor
+Saved
+
+Run
+
+Warp Perspective 
+Explore how to extract and transform a section of an image using pixel coordinates and OpenCV in Python. Understand obtaining corner points, creating a warp perspective matrix, and applying warpPerspective to crop and display image sections effectively.
+
+Sometimes, we might want to work with only a portion of an image. For example, while scanning a document, we only want a part of the document scanned. To perform such tasks, follow the steps mentioned in the illustration.
+
+
+
+The lesson map
+1.
+How can we get only the necessary portions of an image?
+
+Show Answer
+Did you find this helpful?
+In this lesson, we’ll get a portion of the first button, “Champions League,” from the image below.
+
+
+
+The image to be used for warp perspective
+Get the pixel points
+To get the pixel points of the corners of the image, we can use any image editing tool, such as MS Paint. When we move the cursor to the corner of the area we want to extract, the pixel point will be shown in the bottom left corner of the MS Paint window. This is shown in the following screenshot.
+
+
+
+Getting points from MS Paint
+We can get the four-pixel points of the “Champions League” button’s corners with this process.
+
+width, height = 400, 100
+ptsA = np.float32([[1114, 380], [1726, 380], [1114, 535], [1726, 535]])
+ptsB = np.float32([[0, 0], [width, 0], [0, height], [width, height]])
+Note: We assign the values of four points of the required portion to four different points to create the image.
+
+Create a warp perspective matrix
+To create a warp perspective matrix, we use the getPerspectiveTransform() method of the OpenCV library. We will use the following code to create a warp perspective matrix.
+
+matrix = cv2.getPerspectiveTransform(ptsA, ptsB)
+Here, the first parameter is the pixel points of the button’s corners in the original image. The second parameter is the points around the warped image.
+
+Warp the image
+To warp the image, we use the warpPerspective() function of the OpenCV library. This function requires three parameters—img, matrix, and (width, height). These represent the image, its warp perspective matrix, and its dimensions, respectively.
+
+warpedImg = cv2.warpPerspective(img, matrix, (width, height))
+Display the warped image
+To display the warped image, we use the code below:
+
+cv2.imshow("Main",img)
+cv2.imshow("WarpedImg",warpedImg)
+1.
+What is the difference between warping and cropping?
+
+Show Answer
+Did you find this helpful?
+Run the code below to understand the complete flow of code and display the warped image:
+
+main.py
+Ace Editor
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
