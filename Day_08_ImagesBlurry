@@ -1,0 +1,79 @@
+Make Images Blurry and Convert to Grayscale 
+Explore how to apply Gaussian blur to images and convert color images to grayscale using OpenCV in Python. Understand the functions cv2.GaussianBlur and cv2.cvtColor along with appropriate parameters to manipulate image appearance effectively.
+
+You might’ve blurred photos or converted them to grayscale before with camera features or photo editing tools. These effects are commonplace and used to make images more suitable for a number of contexts. For example, flashbacks are often in grayscale. The OpenCV library provides us with functions to make images blurry or convert them to grayscale.
+
+Make the image blurry
+To make images blurry, we use the cv2.GaussianBlur() method of the OpenCV library. This method requires three parameters—img, kernelSize, and sigmaX. These represent the image, its kernel size, and its sigma X, respectively.
+
+Note: sigmaX represents the kernel’s standard deviation in the X-direction.
+
+kernelSize = (7,7)
+sigmaX = 0
+blurredImg = cv2.GaussianBlur(img,kernelSize,sigmaX)
+Note: We use the imread function of the cv2 library to read the image as img.
+
+Here, kernelSize is the size of the window where the blur effect is applied. It should be in odd numbers. A higher number makes the image blurrier.
+
+sigmaX represents the kernel’s standard deviation in the X-direction.
+
+Make the image grayscale
+To make the image grayscale, we use the cv2.cvtColor() method of the OpenCV library. This method requires two parameters—the color code, and img, which represent the image.
+
+grayImg = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+Here, the color code is cv2.COLOR_BGR2GRAY, which converts the image from the BGR color code to the GRAY color code.
+
+Display the blurred and grayscale images
+We use the following code to display the blurred and grayscale images:
+
+cv2.imshow("Main",img)
+cv2.imshow("BlurredImg",blurredImg)
+cv2.imshow("GrayImg",grayImg)
+The following piece of code explains the overall flow of code and displays the images.
+
+main.py
+Ace Editor
+Saved
+
+Make Images Blurry and Convert to Grayscale 
+Explore how to apply Gaussian blur to images and convert color images to grayscale using OpenCV in Python. Understand the functions cv2.GaussianBlur and cv2.cvtColor along with appropriate parameters to manipulate image appearance effectively.
+
+You might’ve blurred photos or converted them to grayscale before with camera features or photo editing tools. These effects are commonplace and used to make images more suitable for a number of contexts. For example, flashbacks are often in grayscale. The OpenCV library provides us with functions to make images blurry or convert them to grayscale.
+
+Make the image blurry
+To make images blurry, we use the cv2.GaussianBlur() method of the OpenCV library. This method requires three parameters—img, kernelSize, and sigmaX. These represent the image, its kernel size, and its sigma X, respectively.
+
+Note: sigmaX represents the kernel’s standard deviation in the X-direction.
+
+kernelSize = (7,7)
+sigmaX = 0
+blurredImg = cv2.GaussianBlur(img,kernelSize,sigmaX)
+Note: We use the imread function of the cv2 library to read the image as img.
+
+Here, kernelSize is the size of the window where the blur effect is applied. It should be in odd numbers. A higher number makes the image blurrier.
+
+sigmaX represents the kernel’s standard deviation in the X-direction.
+
+Make the image grayscale
+To make the image grayscale, we use the cv2.cvtColor() method of the OpenCV library. This method requires two parameters—the color code, and img, which represent the image.
+
+grayImg = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+Here, the color code is cv2.COLOR_BGR2GRAY, which converts the image from the BGR color code to the GRAY color code.
+
+Display the blurred and grayscale images
+We use the following code to display the blurred and grayscale images:
+
+cv2.imshow("Main",img)
+cv2.imshow("BlurredImg",blurredImg)
+cv2.imshow("GrayImg",grayImg)
+The following piece of code explains the overall flow of code and displays the images.
+
+main.py
+Ace Editor
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
