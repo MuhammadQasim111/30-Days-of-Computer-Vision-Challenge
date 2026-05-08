@@ -1,0 +1,85 @@
+Face Detection 
+Explore how to detect faces in images using OpenCV's pre-trained cascade classifiers. Learn to convert images to grayscale, detect multiple faces with the detectMultiScale function, and draw rectangles around detected faces. This lesson helps you understand the practical application of cascade classifiers for face detection in Python, preparing you to implement facial recognition features in your projects.
+
+In this lesson, we’l learn to detect faces. This technique can be used widely in attendance, surveys, and many other fields. In OpenCV, we use cascade classifiers to detect faces. Cascade classifiers are created through cascade classifier training.
+
+What is cascade classifier training?
+Cascade classifier training is a machine learning approach in which a cascade function is trained with lots of positive and negative images to create a cascade file that will be used to detect other images. For example, if we want to detect faces, we collect images with faces and images without faces. Then, we train them in OpenCV and create the cascade. Cascade classifiers are one of the most famous and widely-used features of OpenCV. In this lesson, we’ll use the pre-existing cascades in OpenCV to detect faces.
+
+
+cascade.xml
+XML
+Ace Editor
+ 
+⋯
+Cascade file
+Points to remember:
+
+Please keep a backup of the cascade file somewhere else for local setup.
+We don’t need the details of the above file but the file is for better understanding and is already placed in our coding environment.
+First, we need to convert our image to grayscale.
+
+imgGray = cv2.cvtColor(resizedImage, cv2.COLOR_BGR2GRAY)
+Import the face detection cascade
+To import the required cascade, we use the cv2.CascadeClassifier() function of the OpenCV library. This function requires the location of the cascade file as its parameter:
+
+faceCascade = cv2.CascadeClassifier("/usercode/haarcascades/haarcascade_frontalface_alt2.xml")
+We need the haarcascade_frontalface_alt2.xml file to detect the faces.
+
+Detect faces
+To detect faces, we use the faceCascade.detectMultiScale()` function of the OpenCV library. We can access this function from the cascade that we imported. This function requires three parameters, which are listed below:
+
+faces = faceCascade.detectMultiScale(imgGray, scaleFactor, minNeighbour)
+imgGray is the grayscale image to detect faces.
+
+scaleFactor is the parameter to specify how much the image is reduced at each image scale. For our image, 1.1 is the ideal value.
+
+minNeighbour is the parameter to specify how many neighbors each candidate rectangle should have to retain. Its ideal value is between 3 and 6.
+
+Draw contours
+After detecting the faces, the faces variable will store the x-coordinates, y-coordinates, width, and height of the image. We use the for loop for all the faces detected, get their respective parameters, and use the cv2.rectangle() function to draw rectangular contours around the faces detected. This function requires five parameters:
+
+for (x, y, w, h) in faces:
+    cv2.rectangle(resizedImage, (x, y), (x + w, y + h), (0, 0, 255), 2)
+
+1 / 2
+
+
+Original Image
+Our code in the IDE should look like the following:
+
+haarcascade_frontalface_alt2.xml
+main.py
+main.py
+Ace Editor
+ 
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+
+#Importing Library
+import cv2
+
+# Loading an image
+img = cv2.imread("/usercode/photo.jpg")
+resizedImage = cv2.resize(img, (1000 , 800))
+imgGray = cv2.cvtColor(resizedImage, cv2.COLOR_BGR2GRAY)
+
+#Getting the required cascade
+faceCascade = cv2.CascadeClassifier("/usercode/haarcascades/haarcascade_frontalface_alt2.xml")
+
+
+#Drawing rectangular contours on detected faces
+scaleFactor = 1.1
+minNeighbour = 4
+faces = faceCascade.detectMultiScale(imgGray, scaleFactor, minNeighbour)
+for (x, y, w, h) in faces:
+    cv2.rectangle(resizedImage, (x, y), (x + w, y + h), (0, 0, 255), 2)
+
+#Displaying Image
+cv2.imshow("FaceDetection", resizedImage)
+
+cv2.waitKey(0)
