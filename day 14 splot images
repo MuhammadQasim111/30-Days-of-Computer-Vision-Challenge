@@ -1,0 +1,87 @@
+Join Images 
+Explore how to join multiple images side by side or stacked vertically using OpenCV and NumPy. This lesson teaches you to combine images with np.hstack() and np.vstack() while ensuring image sizing compatibility for better visual effects.
+
+While editing images, we also might want to join the images to display more images at once and make them more creative and visually appealing. We will be doing these tasks during the whole lesson.
+
+
+
+Lesson map
+What is NumPy?
+NumPy (Numerical Python) is a library of multidimensional arrays and routines for processing arrays. It is mainly used for mathematical and logical operations. We’ll use NumPy to join images in this lesson.
+
+Join the images horizontally
+To join images horizontally, we use the np.hstack() method of the OpenCV library. This method requires a parameter, (img1, img2), which represents a tuple of images we want to stack.
+
+Note: All the images to be stacked should be the same size.
+
+imgHor = np.hstack((img1,img2))
+cv2.imshow("Horizontal",imgHor)
+Join the images vertically
+To join the images vertically, we use the np.vstack() method of the OpenCV library. This method requires a parameter, (img1, img2), which represents a tuple of images we want to stack.
+
+imgVer = np.vstack((img1,img2))
+cv2.imshow("Vertical",imgVer)
+Here is what our code in the IDE should look like:
+
+
+1 / 2
+
+
+The image Stacked Horizontally
+main.py
+Ace Editor
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Did you find this helpful?
+Congratulations! You learned to join images in OpenCV.
+
+Join Images 
+Explore how to join multiple images side by side or stacked vertically using OpenCV and NumPy. This lesson teaches you to combine images with np.hstack() and np.vstack() while ensuring image sizing compatibility for better visual effects.
+
+While editing images, we also might want to join the images to display more images at once and make them more creative and visually appealing. We will be doing these tasks during the whole lesson.
+
+
+
+Lesson map
+What is NumPy?
+NumPy (Numerical Python) is a library of multidimensional arrays and routines for processing arrays. It is mainly used for mathematical and logical operations. We’ll use NumPy to join images in this lesson.
+
+Join the images horizontally
+To join images horizontally, we use the np.hstack() method of the OpenCV library. This method requires a parameter, (img1, img2), which represents a tuple of images we want to stack.
+
+Note: All the images to be stacked should be the same size.
+
+imgHor = np.hstack((img1,img2))
+cv2.imshow("Horizontal",imgHor)
+Join the images vertically
+To join the images vertically, we use the np.vstack() method of the OpenCV library. This method requires a parameter, (img1, img2), which represents a tuple of images we want to stack.
+
+imgVer = np.vstack((img1,img2))
+cv2.imshow("Vertical",imgVer)
+Here is what our code in the IDE should look like:
+
+
+1 / 2
+
+
+The image Stacked Horizontally
+main.py
+Ace Editor
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Did you find this helpful?
+Congratulations! You learned to join images in OpenCV.
+
+
+Back
+lesson
+Back
+lesson
