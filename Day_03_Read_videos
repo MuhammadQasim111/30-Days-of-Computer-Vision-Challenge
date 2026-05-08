@@ -1,0 +1,68 @@
+Read Videos 
+Explore the process of reading video files using OpenCV in Python. Understand how to capture video frames, resize them, display videos continuously, and handle keyboard input to stop playback. This lesson equips you with the fundamental skills to work with video data in computer vision projects.
+
+To process a video with OpenCV, we follow the steps given below:
+
+
+
+The lesson map
+Set the frame
+First, we have to create the frame to display the image. You can create the frame as per the requirement of your video. For example, look at the code below:
+
+frameWidth = 640
+frameHeight = 480
+Read the video
+Next, we have to capture the video. To do that, we use the cv2.VideoCapture(filename) method of the OpenCV library. We have to write the filename as a parameter inside the parentheses:
+
+vid = cv2.VideoCapture("readVid.mp4")
+Note: We need to import the cv2 library before using the function.
+
+We need to write the absolute path of the file as a parameter if the file is not placed in the same directory as the project files. We use the following command to do this:
+
+vid = cv2.VideoCapture(r"/usercode/vid.mp4")
+To read the video, we use the read() function for the captured video. We use the following code:
+
+while True:
+  success, img = vid.read()
+Here, we’re storing our image in the img object. The success keyword stores a boolean value representing whether or not we were able to read the next frame.
+
+We also resize the image as per the frame of the video. For this purpose, we use the cv2.resize() function. We’ll cover this function in more detail in the next chapter. To resize the image, we use the following code:
+
+img = cv2.resize(img, (frameWidth, frameHeight))
+Display the video
+After reading the video, we display the video frame by frame, where each frame is an image. Therefore, we again use the cv2.imshow() and cv2.waitKey() functions to pause each frame in the video and display the frames continuously to display the video.
+
+img = cv2.imshow("Video",img)
+The cv2.waitKey() method
+Unlike the previous lesson, we have to display the image that we’re reading continuously so it will be displayed as a video. Therefore, we cannot keep the image displaying indefinitely. Can you guess what we should use as a parameter for the cv2.waitKey() method?
+
+We use 1 as a parameter— cv2.waitKey(1). By doing so, the image will change in one millisecond, and together the images will display as a video.
+
+We also need to write the code to close the video. Closing videos is a little tricky—we need to use the following code:
+
+if cv2.waitKey(1) and 0xFF == ord('q'):
+  break
+Here, 0xFF is a hexadecimal constant, and ord('q') returns an integer representing the Unicode of the character “q”. If it matches, the code breaks. This means if “q” is pressed, the video will stop.
+
+The following is what our code in the local IDE should look like:
+import cv2
+
+# Setting frame
+frameWidth = 640
+frameHeight = 480
+
+# Capturing video
+vid = cv2.VideoCapture(r"/usercode/vid.mp4")
+
+# Checking if video is read
+while True:
+    # Reading the video
+    success, img = vid.read()
+    if success:
+        img = cv2.resize(img, (frameWidth, frameHeight))
+    # Displying the video
+        cv2.imshow("Video", img)
+        if cv2.waitKey(71) == ord('q'):
+            break
+main.py
+Ace Editor
