@@ -1,0 +1,99 @@
+Mask Images 
+Understand how to use masking techniques in OpenCV with Python. Learn to create blank images, design crescent-shaped masks using circles and rectangles, and apply these masks with bitwise operators to edit and highlight specific regions in images.
+
+We can use the bitwise operators to mask images. Masking is another essential tool to edit images in OpenCV. In this lesson, we’ll follow the steps below.
+
+
+
+The lesson map
+First, we’ll create a blank image.
+
+To create a blank image, we use the np.zeros() function of the OpenCV library.
+
+blank = np.zeros(img.shape[:2], dtype='uint8')
+What is masking?
+Masking is an image editing technique used to highlight a specific part of an image. This technique is used to combine different images, as well as highlight the required portion in the combined images.
+
+Note: While masking, the size of the mask image should be the same size as the image being masked.
+
+Create the mask
+First, we’ll create a crescent-shaped mask for our image. We create two different blank images with a circle and a rectangle. Next, we use the AND bitwise operator to combine them.
+
+
+main.py
+Python 3.8
+Ace Editor
+⋯
+Creating a mask
+The parameters inside the cv2.circle() function are the image, center of the circle, the radius of the circle, the color of the circle(255 represents black), and the thickness of the circle(-1 suggests that the circle is filled).
+
+The parameters inside the cv2.rectangle function are the image, corner point of the bottom left corner, cornet point of the top right corner, the color of the rectangle(255 represents black), and the thickness of the rectangle(-1 suggests that the circle is filled).
+
+Apply the mask to the image
+To apply a mask to the image, we use the cv2.bitwise_and() function of the OpenCV library. This function requires three parameters. The first two parameters are the images where we’ll apply the AND bitwise operation. Since we already found the intersection of our images, we only need to input the same image twice. The third parameter is the mask, where we use the crescent-shaped mask we created.
+
+masked = cv2.bitwise_and(img,img,mask=crescent_shape)
+cv2.imshow('CrescentMask', masked)
+
+
+1 / 3
+
+
+Orignal image
+This is what our code in the IDE should look like:
+
+main.py
+Ace Editor
+ 
+Saved
+
+Run
+Your app can be found at: https://ed-4617899872419840.devpath.run
+
+Terminal
+Did you find this helpful?
+Congratulations! You have learned to mask images.
+
+
+Back
+lesson
+
+Mark As Completed
+
+Next
+Bitwise Operations
+
+Histogram Computation
+
+
+# Import library
+import cv2
+import numpy as np
+
+# Loading the image
+img = cv2.imread(r"/usercode/faces.jpg")
+
+#Creating a blank image
+blank = np.zeros(img.shape[:2], dtype='uint8')
+
+#Creating a circular mask
+circle = cv2.circle(blank.copy(), (img.shape[1]//2,img.shape[0]//2), 100, 255, -1)
+
+#Creaing a retangular mask
+rectangle = cv2.rectangle(blank.copy(), (30,30), (200,400), 255, -1)
+
+
+#Combining those two masks
+crescent_shape = cv2.bitwise_and(circle,rectangle)
+cv2.imshow('Crescent_Mask', crescent_shape)
+
+
+#Masking the image
+masked = cv2.bitwise_and(img,img,mask=crescent_shape)
+
+
+#Displaying the Masked image
+cv2.imshow('CrescentMask', masked)
+
+cv2.waitKey(0)
+
